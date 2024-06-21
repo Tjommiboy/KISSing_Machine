@@ -62,7 +62,7 @@ main {
 
 /* ELEMENTS STYLE */
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: center;
   position: absolute;
   width: 100%;
@@ -121,15 +121,18 @@ h1 {
   font-family: inherit;
   padding: 2rem 3rem;
   cursor: pointer;
+  margin-bottom: 4rem;
 }
 
 .btn:hover {
   background-color: #ccc;
+  margin-bottom: 2rem;
 }
 
 .message {
-  margin-bottom: 8rem;
+  margin-bottom: 10rem;
   height: 3rem;
+  font-size: x-small;
 }
 
 .label-score {
@@ -145,6 +148,14 @@ h1 {
 main {
   flex: 1;
 }
+.stackontop {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center;
+  margin-top: -90px;
+}
+
 .copywrite {
   text-align: center;
   padding: 1em;
