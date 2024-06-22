@@ -17,7 +17,7 @@ body {
   background-color: #c86d6d;
   /* background-color: #60b347; */
 }
-@keyframes pulsate {
+@keyframes pulsateBackground {
   0% {
     background-color: #fb8080;
   }
@@ -29,15 +29,15 @@ body {
   }
 }
 
-.pulsate {
-  animation: pulsate 0.3s infinite;
+.pulsateBackground {
+  animation: pulsateBackground 0.3s infinite;
 }
 
 /* LAYOUT */
 header {
   position: relative;
   height: 25vh;
-  border-bottom: 7px solid #eee;
+  border-bottom: 7px solid #de9d9d;
 }
 
 main {
@@ -58,6 +58,9 @@ main {
 .right {
   width: 52rem;
   font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* ELEMENTS STYLE */
@@ -72,7 +75,7 @@ h1 {
 }
 
 .number {
-  background: #eee;
+  background: #de9d9d;
   color: #333;
   font-size: 6rem;
   font-weight: 900;
@@ -90,7 +93,7 @@ h1 {
 .between {
   font-size: 1.4rem;
   position: absolute;
-  top: 2rem;
+  top: 20rem;
   right: 2rem;
 }
 
@@ -99,6 +102,7 @@ h1 {
   top: 4rem;
   left: 2rem;
   border-radius: 20px;
+  background-color: #de9d9d;
 }
 
 .guess {
@@ -117,13 +121,14 @@ h1 {
 
 .btn {
   border: none;
-  background-color: #eee;
+  background-color: #de9d9d;
   color: #222;
   font-size: 2rem;
   font-family: inherit;
   padding: 2rem 3rem;
   cursor: pointer;
   margin-bottom: 4rem;
+  border-radius: 20px;
 }
 
 .btn:hover {
@@ -137,14 +142,32 @@ h1 {
   font-size: 15px;
 }
 
+.pulsate {
+  animation: pulsate 2s infinite;
+}
+
+@keyframes pulsate {
+  0% {
+    font-size: 15px;
+  }
+  50% {
+    font-size: 25px; /* Adjust this value to control the maximum font size */
+  }
+  100% {
+    font-size: 15px;
+  }
+}
+
 .label-score {
   margin-bottom: 2rem;
+  font-size: 18px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-size: 18px;
 }
 
 main {
