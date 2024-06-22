@@ -15,18 +15,24 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highscore = 0;
 
+const displayMessage = function (message) {
+  document.querySelector('.message').textContent = message;
+};
+const scoreCount = function (score) {
+  document.querySelector('.score').textContent = score;
+};
+
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
   // when there is no input
   if (!guess) {
-    document.querySelector('.message').textContent = '❌no number🚫';
+    displayMessage('❌no number🚫');
   } //when player wins
   else if (guess === secretNumber) {
     document.querySelector('.number').textContent = secretNumber;
-    document.querySelector(
-      '.message'
-    ).textContent = `You Win ${secretNumber} 💋kisses💋`;
+
+    displayMessage(`You Win ${secretNumber} 💋kisses💋`);
     document.querySelector('body').classList.add('pulsate');
     document.querySelector('.number').style.width = '200px';
     //check the high score
@@ -35,23 +41,13 @@ document.querySelector('.check').addEventListener('click', function () {
       highscore = score;
       document.querySelector('.highscore').textContent = highscore;
     }
-
-    //when guess is to high
-  } else if (guess > secretNumber) {
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent =
-        'Thats too many kisses💋, Miss Jay are you crazy,calm down!🚫🚫🤪!';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.message').textContent = 'You lose';
-      document.querySelector('.score').textContent = 0;
-    }
-    //when guess is to low
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent =
-        '😢Number is to low💔, I need more kisses💋🥰💋!';
+      displayMessage(
+        guess > secretNumber
+          ? 'Thats too many kisses💋, Miss Jay are you crazy😱🤪?,calm down!🚫🚫🤪!'
+          : '😢Number is to low💔, I need more kisses💋🥰💋!'
+      );
       score--;
       document.querySelector('.score').textContent = score;
     } else {
@@ -59,6 +55,30 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = 0;
     }
   }
+
+  //when guess is to high
+  // } else if (guess > secretNumber) {
+  //   if (score > 1) {
+  //     displayMessage(
+  //       'Thats too many kisses💋, Miss Jay are you crazy😱🤪?,calm down!🚫🚫🤪!'
+  //     );
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.message').textContent = 'You lose';
+  //     document.querySelector('.score').textContent = 0;
+  //   }
+  //   //when guess is to low
+  // } else if (guess < secretNumber) {
+  //   if (score > 1) {
+  //     displayMessage('😢Number is to low💔, I need more kisses💋🥰💋!');
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.message').textContent = 'You lose';
+  //     document.querySelector('.score').textContent = 0;
+  //   }
+  // }
 });
 
 document.querySelector('.again').addEventListener('click', function () {
